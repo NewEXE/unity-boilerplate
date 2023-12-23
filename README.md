@@ -1,13 +1,13 @@
 # unity-boilerplate
 > Boilerplate for Unity projects.
 >
-> Uses MVC concept. For details read "[Unity in action](https://www.manning.com/books/unity-in-action-third-edition)" book, chapter 9.
+> Uses MVC concept. For details read "[Unity in action](https://www.manning.com/books/unity-in-action-third-edition)" book, chapters 9 & 12.
 
 ## Workflow
 
 1. Some UI action assigned on some controller.
 2. UI action calls mutation methods in any manager(s).
-3. Manager(s) broadcast event about mutation.
+3. Manager(s) broadcast event about mutation result.
 4. Any controller(s) can be subscribed to event and perform re-render or (and) call another method in manager(s).
 
 Note. Manager's methods can be called from any place - trigger, controller or any other.
