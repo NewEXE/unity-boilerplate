@@ -7,41 +7,48 @@ namespace Game.Controllers
 {
     public class GameProcessController : MonoBehaviour
     {
-        [SerializeField] Text scoreLabel;
+        [SerializeField] private Text scoreLabel;
         
-        void OnEnable()
+        private void OnEnable()
         {
             Messenger.AddListener(GameEvent.ScoreChanged, this.OnScoreChangedEvent);
-            this.OnScoreChangedEvent();
+            this.RefreshScore();
         }
-        void OnDisable()
+        
+        private void OnDisable()
         {
             Messenger.RemoveListener(GameEvent.ScoreChanged, this.OnScoreChangedEvent);
         }
     
-        public void OnToMenuClicked()
+        private void OnToMenuClicked()
         {
             Managers.GameLocation.GoToMenu();
         }
         
-        public void OnIncreaseScoreClicked()
+        private void OnIncreaseScoreClicked()
         {
             Managers.Score.IncreaseScore();
         }
         
-        public void OnSaveGameClicked()
+        private void OnSaveGameClicked()
         {
             Managers.Data.SaveGameState();
         }
         
-        public void OnLoadGameClicked()
+        private void OnLoadGameClicked()
         {
             Managers.Data.LoadGameState();
         }
         
-        private void OnScoreChangedEvent() {
+        private void OnScoreChangedEvent()
+        {
+            this.RefreshScore();
+        }
+
+        private void RefreshScore()
+        {
             string message = $"Score: {Managers.Score.score}";
-            scoreLabel.text = message;
+            this.scoreLabel.text = message;
         }
     }    
 }

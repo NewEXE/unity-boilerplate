@@ -20,13 +20,12 @@ namespace Game.Management
         public void UpdateData(int score)
         {
             this.score = score;
-            Messenger.Broadcast(GameEvent.ScoreChanged, MessengerMode.DontRequireListener);
+            Messenger.Broadcast(GameEvent.ScoreChanged);
         }
         
         public void IncreaseScore()
         {
-            ++this.score;
-            this.UpdateData(this.score);
+            this.UpdateData(++this.score);
         }
     }
 }

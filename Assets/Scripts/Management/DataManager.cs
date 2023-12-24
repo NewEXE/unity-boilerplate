@@ -17,7 +17,7 @@ namespace Game.Management
             Debug.Log("DataManager starting...");
 
             this.filename = Path.Combine(Application.persistentDataPath, "gameState.dat");
-		
+
             base.Startup(networkService);
         }
 
@@ -47,6 +47,7 @@ namespace Game.Management
             }
             
             Managers.Score.UpdateData((int)gameState["score"]);
+            Managers.GameLocation.UpdateData(GameLocation.GameProcess);
             
             Managers.GameLocation.RestartCurrentLocation();
         }

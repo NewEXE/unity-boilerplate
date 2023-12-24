@@ -27,6 +27,7 @@ namespace Game.Devices
             this.transform.position = pos;
             this.isOpen = true;
         }
+        
         public void Deactivate()
         {
             if (!this.isOpen) {

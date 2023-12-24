@@ -5,12 +5,12 @@ namespace Game.Controllers
 {
     public class MenuController : MonoBehaviour
     {
-        public void OnToStartGameClicked()
+        private void OnToStartGameClicked()
         {
             Managers.GameLocation.GoToGameProcess();
         }
         
-        public void OnToExitClicked()
+        private void OnToExitClicked()
         {
             Managers.GameLocation.CloseApp();
         }

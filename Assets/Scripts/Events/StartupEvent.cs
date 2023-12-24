@@ -2,7 +2,7 @@
 {
     public enum StartupEvent
     {
-        ManagersStarted,
-        ManagersProgress
+        ManagersProgress,
+        ManagersStarted
     }
 }

@@ -29,7 +29,7 @@
 // Messenger<float>.Broadcast<string>("myEvent", 1.0f, MyEventCallback);
 // private void MyEventCallback(string s1) { Debug.Log(s1"); }
 //
-// If preferred, change DEFAULT_MODE to not require listeners.
+// If preferred, change DEFAULT_MODE to require listeners.
 
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ public enum MessengerMode
 static internal class MessengerInternal
 {
     readonly public static Dictionary<Enum, Delegate> eventTable = new Dictionary<Enum, Delegate>();
-    static public MessengerMode DEFAULT_MODE = MessengerMode.RequireListener;
+    static public MessengerMode DEFAULT_MODE = MessengerMode.DontRequireListener;
 
     static public void AddListener(Enum eventType, Delegate callback)
     {

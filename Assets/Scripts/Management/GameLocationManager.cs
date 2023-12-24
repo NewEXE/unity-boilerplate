@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Game.Services;
+using UnityEngine.SceneManagement;
 
 namespace Game.Management
 {
@@ -30,13 +31,13 @@ namespace Game.Management
         
         public void GoToMenu()
         {
-            this.UpdateData(GameLocation.Menu);
+            this.currentLocation = GameLocation.Menu;
             this.RestartCurrentLocation();
         }
         
         public void GoToGameProcess()
         {
-            this.UpdateData(GameLocation.GameProcess);
+            this.currentLocation = GameLocation.GameProcess;
             this.RestartCurrentLocation();
         }
         
@@ -49,7 +50,7 @@ namespace Game.Management
         public void RestartCurrentLocation()
         {
             Debug.Log($"Loading scene: {this.currentLocation}");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(this.currentLocation.ToString());
+            SceneManager.LoadScene(this.currentLocation.ToString());
         }
     }
 }
